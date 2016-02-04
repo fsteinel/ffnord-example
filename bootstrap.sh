@@ -65,6 +65,7 @@ puppet module install puppetlabs-vcsrepo
 
 : '####### Download the puppet package ffnord ######'
 cd /etc/puppet/modules
+[ -d /etc/puppet/modules/ffnord ] && rm -rf /etc/puppet/modules/ffnord
 git clone https://github.com/ffnord/ffnord-puppet-gateway ffnord
 
 if [ "x${FFNORD_TESTING_REPO}" != "x" ]; then
