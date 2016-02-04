@@ -45,13 +45,13 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 locale-gen en_US.UTF-8
 
-apt-get update || die "failed to update"
+apt-get update || { echo 'failed to update' >&2;exit 1; }
 apt-get install --no-install-recommends -y puppet git tcpdump mtr-tiny apt-transport-https \
-								vim-puppet tcpdump dnsutils realpath screen htop mlocate tig sudo cmake libpcap-dev || die "failed to install"
+								vim-puppet tcpdump dnsutils realpath screen htop mlocate tig sudo cmake libpcap-dev || { echo 'failed to install' >&2;exit 1; }
 # optional apt-get install --no-install-recommends -y vim
 
 if [ $LSBDISTCODENAME != "wheezy" ]; then
-  apt-get install -y systemd-sysv || die "failed to install "
+  apt-get install -y systemd-sysv || { echo 'failed to install systemd-sysv' >&2;exit 1; }
   # TODO: solve this in puppet
   modprobe ip_tables
   modprobe nf_conntrack
