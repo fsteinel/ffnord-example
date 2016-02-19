@@ -139,7 +139,7 @@ Now we can rollout some of the machines:
 
 Look around the mashines. For example check for running services with:
 
-    systemctl status bird6 openvpn fastd alfred bat
+    systemctl status isc-dhcp-server radvd ntp openvpnr pcbind fastd bind9 bird6 bird alfred batadv-vis named tincd
 
 In case the ssh login doesn't work: Vagrant creates all VMs with the user "vagrant" and the standard password "vagrant". 
 
